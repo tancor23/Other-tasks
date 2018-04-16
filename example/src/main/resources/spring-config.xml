@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="spring-config.properties" />
+	</bean>
+
+	<bean id="t800" class="by.rebel.springTerminatorXML.T800">
+		<constructor-arg ref="targetSave" />
+	</bean>
+	
+	<bean id="t1000" class="by.rebel.springTerminatorXML.T1000">
+		<constructor-arg ref="targetKill" />
+	</bean>
+	
+	<bean id="targetKill"
+		class="by.rebel.springTerminatorXML.TargetKill">
+		<constructor-arg value="${target.kill}" />
+	</bean>
+	
+	<bean id="targetSave"
+		class="by.rebel.springTerminatorXML.TargetSave">
+		<constructor-arg value="${target.save}" />
+	</bean>
+
+</beans>

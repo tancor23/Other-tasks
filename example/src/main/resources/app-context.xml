@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="init" default-destroy-method="destroy">
+
+	<bean id="car" class="by.htp.spring.entity.Car">
+		<constructor-arg name="vins">
+			<set>
+				<value>1</value>
+				<value>2</value>
+			</set>
+		</constructor-arg>
+		<property name="model" value="Opel" />
+		<property name="engine" ref="engine1" />
+		<property name="owners">
+			<list>
+				<value>Pasha</value>
+				<value>Sasha</value>
+				<value>Dasha</value>
+				<value>Natasha</value>
+			</list>
+		</property>
+		<property name="locations">
+			<map>
+				<entry key="Russia" value="5" />
+				<entry key="Belarus" value="6" />
+				<entry key="Ukrain" value="7" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="newCar" class="by.htp.spring.entity.Car">
+		<constructor-arg name="model" value="Tesla"></constructor-arg>
+		<property name="engine" ref="engine1" />
+	</bean>
+
+	<bean id="engine1" class="by.htp.spring.entity.Engine"
+		scope="singleton" factory-method="getInstance"
+		init-method="initEngine" destroy-method="destroyEngine">
+	</bean>
+
+
+</beans>
