@@ -18,8 +18,9 @@
 				form="data">
 		</p>
 		<p>
-			<input type="submit" value="submit!" form="data">
+			<input type="submit" value="submit" form="data">
 		</p>
 	</form>
 </body>
 </html>
+
