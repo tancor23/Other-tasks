@@ -3,24 +3,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html">
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Hello</title>
+<title>New User</title>
 </head>
 <body>
+<p>Hello ${user.login}</p>
+<p>Your password is ${user.password}</p>
 
-	<a:form method="POST" commandName="user" action="login/checkUser">
-		<fieldset>
-			<a:label path="login">Login:</a:label>
-			<a:input path="login" />
-
-			<a:label path="password">Password:</a:label>
-			<a:password path="password" />
-
-		</fieldset>
-		<input type="submit" value="submit">
+	<a:form action="/springmvc-app/login/" method="GET">
+		<p>
+			<input type="submit" value="back to start page">
+		</p>
 	</a:form>
+	
 </body>
 </html>

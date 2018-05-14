@@ -1,8 +1,11 @@
 package web.action;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,15 +19,23 @@ import domain.User;
 @RequestMapping(value = "/login")
 public class LoginController {
 	
+	private static final Logger logger = LogManager.getLogger();
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView common() {
+	public ModelAndView main() {
 		System.out.println("/");
-		return new ModelAndView("login_page", "command", new User ());
+		return new ModelAndView("login_page", "user", new User ());
 	}
 
 	@RequestMapping(value = "/checkUser", method = RequestMethod.POST)
-	public void check() {
-		System.out.println("check");
+	public ModelAndView check(@ModelAttribute("user") User user) {
+		System.out.println("checkUser");
+		
+		/*ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("new_user");
+		modelAndView.addObject("user", user);*/
+		
+		return new ModelAndView("new_user", "user", user);
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
