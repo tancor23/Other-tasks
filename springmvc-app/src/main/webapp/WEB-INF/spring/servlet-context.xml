@@ -27,4 +27,5 @@
 			<bean class="web.interceptor.TimeInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
+	
 </beans>
