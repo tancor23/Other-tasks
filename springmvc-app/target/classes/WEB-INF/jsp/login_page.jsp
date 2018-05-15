@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="a"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html">
@@ -11,16 +11,18 @@
 </head>
 <body>
 
-	<a:form method="POST" commandName="user" action="login/checkUser">
+	<form:form method="POST" commandName="user" action="login/checkUser">
 		<fieldset>
-			<a:label path="login">Login:</a:label>
-			<a:input path="login" />
+			<form:label path="login">Login:</form:label>
+			<form:input path="login"/>
+			<form:errors path="login" cssClass="error"/>
 
-			<a:label path="password">Password:</a:label>
-			<a:password path="password" />
+			<form:label path="password">Password:</form:label>
+			<form:password path="password"/>
+			<form:errors path="password" cssClass="error"/>
 
 		</fieldset>
 		<input type="submit" value="submit">
-	</a:form>
+	</form:form>
 </body>
 </html>

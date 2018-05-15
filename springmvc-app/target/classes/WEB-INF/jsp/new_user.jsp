@@ -12,7 +12,7 @@
 <p>Hello ${user.login}</p>
 <p>Your password is ${user.password}</p>
 
-	<a:form action="/springmvc-app/login/" method="GET">
+	<a:form action="/springmvc-app/" method="GET">
 		<p>
 			<input type="submit" value="back to start page">
 		</p>
