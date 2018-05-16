@@ -4,4 +4,6 @@ import domain.User;
 
 public interface UserDao extends BaseDao<User> {
 
+	boolean loginIsFree(String name);
+
 }
