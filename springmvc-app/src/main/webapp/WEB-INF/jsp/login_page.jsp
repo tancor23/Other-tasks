@@ -6,13 +6,15 @@
 
 <html>
 <head>
-<link href="<c:url value="/resources/start.css" />" rel="stylesheet">
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<link href="<c:url value="/resources/css/start.css" />" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Hello</title>
 </head>
 <body>
 
-	<form:form method="POST" commandName="user" action="login/checkUser" class="box login">
+
+	<form:form method="POST" commandName="user" action="${contextPath}/login/checkUser" class="box login">
 		<fieldset class="boxBody">
 			<form:label path="login">Login:</form:label>
 			<form:input path="login" />

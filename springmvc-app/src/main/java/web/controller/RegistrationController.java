@@ -2,11 +2,7 @@ package web.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,21 +44,5 @@ public class RegistrationController {
 	public ModelAndView failed() {
 		return new ModelAndView("login-failed", "message", "Login failed!");
 	}
-	
-	@RequestMapping(value = "/get-json-user/{login}", method = RequestMethod.GET, produces = "application/json")
-	@ResponseBody
-	public User getJsonUser(@PathVariable("login") String login) {
-		logger.info(login);
-		User user = new User();
-		user.setLogin("aaaa");
-		user.setPassword("passsss");
-		return user;
-	}
-
-	@RequestMapping(value = "/put-json-user", method = RequestMethod.POST, consumes = "application/json")
-	public ResponseEntity<String> setJsonUser(@RequestBody User user) {
-		logger.info(user.getLogin());
-		logger.info(user.getPassword());
-		return new ResponseEntity<String>(HttpStatus.OK);
-	}
+		
 }
