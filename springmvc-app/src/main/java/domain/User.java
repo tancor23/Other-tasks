@@ -8,30 +8,30 @@ import javax.persistence.Table;
 //import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
-
-
 @Entity
 @Table(name = "users")
 public class User {
-		
+
 	@Id
 	@GeneratedValue
 	@Column(name = "user_id")
 	private int id;
-	
+
 	@Size(min = 3, max = 14, message = "The input is not correct!")
 	@Column(unique = true)
 	private String login;
-	
+
 	@Size(min = 2, max = 14, message = "The input is not correct!")
 	@Column
 	private String password;
-	
-	/*@Email(regexp = "^[a-zA-Z0-9]{1,}"+"((\\.|\\_|-{0,1})[a-zA-Z0-9]{1,})*"+"@"+"[a-zA-Z0-9]{1,}"
-	               +"((\\.|\\_|-{0,1})[a-zA-Z0-9]{1,})*"+"\\.[a-zA-Z]{2,}$")
-	@Column
-	private String email;
-*/
+
+	/*
+	 * @Email(regexp =
+	 * "^[a-zA-Z0-9]{1,}"+"((\\.|\\_|-{0,1})[a-zA-Z0-9]{1,})*"+"@"+"[a-zA-Z0-9]{1,}"
+	 * +"((\\.|\\_|-{0,1})[a-zA-Z0-9]{1,})*"+"\\.[a-zA-Z]{2,}$")
+	 * 
+	 * @Column private String email;
+	 */
 	public User() {
 	}
 
@@ -59,7 +59,14 @@ public class User {
 		this.password = password;
 	}
 
-	
+	public void setup() { 
+		System.out.println("User: init param");;
+	}
+
+	public void cleanup() {
+		System.out.println("User: destroy param");
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -72,12 +79,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "\nUser"
-	+"\nidUser:" + this.id + ";  " 
-				+ "\nlogin:" + login + ";  " 
-	+ "\npassword:" + password + ";  "
-	            /*+ "\nemail:" + email +"; "*/;
+		return "\nUser" + "\nidUser:" + this.id + ";  " + "\nlogin:" + login + ";  " + "\npassword:" + password + ";  "
+		/* + "\nemail:" + email +"; " */;
 	}
-
 
 }
