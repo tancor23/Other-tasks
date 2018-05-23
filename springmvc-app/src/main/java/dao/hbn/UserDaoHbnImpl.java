@@ -5,12 +5,13 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import dao.UserDao;
 import domain.User;
 
 
-
+@Repository(value = "userDaoHBN")
 public class UserDaoHbnImpl implements UserDao {
 
 	@Override
