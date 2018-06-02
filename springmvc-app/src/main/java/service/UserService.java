@@ -6,6 +6,6 @@ import domain.User;
 
 public interface UserService {
 	
-	List<User> getCarsList();
+	List<User> getUserList();
 
 }
